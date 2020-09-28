@@ -1,6 +1,7 @@
 # pyapi Week 2 of Python
 
 Oh hey. We be learning Python here.
+Awesome. Let's get started.
 
 ## Getting Started
 
