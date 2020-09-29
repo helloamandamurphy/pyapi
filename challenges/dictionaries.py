@@ -1,25 +1,28 @@
 #!/usr/bin/python3
+import argparse
 
-def askName():
-    char_name = input("Which character do you want to know about? (Flash, Batman, Superman) > ")
-    return char_name
+hero =  {"flash":{"speed": "fastest", "intelligence": "lowest", "strength": "lowest"}, "batman":{"speed": "slowest", "intelligence": "highest", "strength": "money"}, "superman":{"speed": "fast", "intelligence": "average", "strength": "strongest"}}
 
-def askStat():
-    char_stat = input("What statistic do you want to know about? (strength, speed, intelligence) > ")
-    return char_stat
+#What I had (not correct)
+#ap = argparse.ArgumentParser()
+#ap.add_argument('name', "-n", "--name", required=True, 
+        #help="name of the hero")
+#ap.add_argument('stat', "-s", "--stat", required=True,
+        #help="stat of the hero")
+#args = vars(ap.parse_args())
 
-info =  {"flash":{"speed": "fastest", "intelligence": "lowest", "strength": "lowest"}, "batman":{"speed": "slowest", "intelligence": "highest", "strength": "money"}, "superman":{"speed": "fast", "intelligence": "average", "strength": "strongest"}}
+#print(f"{args.name}'s {args.stat} is: .")
 
-def main():
-    nkey = askName().lower()
-    skey = askStat().lower()
+#Based off Didi's solution shared in the class.
+def printHero(heroInput, statInput):
+    print(f"{heroInput.capitalize()'s  {statInput} is: {str(hero[heroInput][statInput])}"
 
-    print(f"{nkey.capitalize()}'s {skey} is: {info[nkey][skey]}.")
-   # while True: 
-    #    namei = int(name)-1
-     #   stati = int(stat)-1
+answer= ' ' 
 
-      #  try: 
-       #     if 0 <= name <= 2:
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Superhero Stats")
+    parser.add_argument('-hero', choices=heros.keys(), metavar='HERO', default='flash', help="Pick a hero (Flash, Batman, Superman)")
+    parser.add_argument('-stat', choices=heros['flash'].keys(), metavar='STAT', default='speed', help="Pick a stat (speed, intelligence, strength)")
 
-main()
+args = parser.parse_args()
+printHero(args.hero, args.stat)
