@@ -12,8 +12,10 @@ def api_pull():
 
 def api_slice(pokeinfo):
     poke_pic= pokeinfo['sprites']['front_default']
-   # return poke_pic
-    print(poke_pic)
+    return poke_pic
+    #print(poke_pic)
+
+
 
 def main():
     pokeinfo= api_pull()
